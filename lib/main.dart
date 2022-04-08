@@ -6,9 +6,15 @@ void main() {
           appBar: AppBar(
             title: const Text("my app"),
             centerTitle: true,
+            backgroundColor: Colors.green,
           ),
           body: const Center(
-            child: Text("hello ninja app working"),
+            child: Text("hello ninja app working",
+                style: TextStyle(
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 2.0,
+                )),
           ),
           floatingActionButton: FloatingActionButton.extended(
             onPressed: () {
@@ -16,6 +22,6 @@ void main() {
             },
             label: const Text('Approve'),
             icon: const Icon(Icons.thumb_up),
-            backgroundColor: Colors.pink,
+            backgroundColor: Colors.red,
           ))));
 }
