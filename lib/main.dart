@@ -11,22 +11,22 @@ void main() {
 /// the state widget can change over time
 ///
 
+/// to show a photo from local, create a folder named "asset" in main directory
+/// then go to pubspec.yaml file and find "assets:"
+/// now write the photo location there
+/// like here  "- assets/"
+
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text("Ninja app"),
+          title: const Text("Adorsho praniSheba app"),
           centerTitle: true,
           backgroundColor: Colors.blue,
         ),
-        body: const Center(
-          child: Text("hello ninja app working",
-              style: TextStyle(
-                fontSize: 20.0,
-                fontWeight: FontWeight.bold,
-                letterSpacing: 2.0,
-              )),
+        body: Center(
+          child: Image.asset('assets/cow2.jpg'),
         ),
         floatingActionButton: FloatingActionButton.extended(
           onPressed: () {
