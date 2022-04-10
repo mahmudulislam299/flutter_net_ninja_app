@@ -4,7 +4,13 @@ void main() {
   runApp(MaterialApp(home: NinjaCard()));
 }
 
-class NinjaCard extends StatelessWidget {
+class NinjaCard extends StatefulWidget {
+  @override
+  State<NinjaCard> createState() => _NinjaCardState();
+}
+
+class _NinjaCardState extends State<NinjaCard> {
+  int taskDone = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,6 +20,15 @@ class NinjaCard extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.green,
         elevation: 0, //removing shadow in app bar
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          setState(() {
+            taskDone += 1;
+          });
+        },
+        child: const Icon(Icons.add),
+        backgroundColor: Colors.green[800],
       ),
       body: Padding(
         padding: const EdgeInsets.fromLTRB(30, 20, 30, 0),
@@ -122,6 +137,31 @@ class NinjaCard extends StatelessWidget {
                   ),
                 ),
               ],
+            ),
+            const SizedBox(
+              //for spacing
+              height: 30,
+            ),
+            Text(
+              'Task Done',
+              style: TextStyle(
+                color: Colors.grey[500],
+                letterSpacing: 2,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(
+              //for spacing
+              height: 10,
+            ),
+            Text(
+              '$taskDone',
+              style: TextStyle(
+                color: Colors.grey[900],
+                letterSpacing: 2,
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ],
         ),
