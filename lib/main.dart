@@ -1,65 +1,131 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MaterialApp(home: Home()));
+  runApp(MaterialApp(home: NinjaCard()));
 }
 
-/// Stateless Widget
-/// the state of widget cannot change over time
-///
-/// Stateful widgets
-/// the state widget can change over time
-///
-
-/// to show a photo from local, create a folder named "asset" in main directory
-/// then go to pubspec.yaml file and find "assets:"
-/// now write the photo location there
-/// like here  "- assets/"
-
-class Home extends StatelessWidget {
+class NinjaCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text("Adorsho praniSheba app"),
-          centerTitle: true,
-          backgroundColor: Colors.blue,
-        ),
-        body: Row(
+      backgroundColor: Colors.green[100],
+      appBar: AppBar(
+        title: const Text('PraniSheba ID Card'),
+        centerTitle: true,
+        backgroundColor: Colors.green,
+        elevation: 0, //removing shadow in app bar
+      ),
+      body: Padding(
+        padding: const EdgeInsets.fromLTRB(30, 40, 30, 0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Expanded(
-              flex: 3,
-              child: Container(
-                padding: EdgeInsets.all(30),
-                color: Colors.pink,
-                child: Text('1'),
+            const Center(
+              child: CircleAvatar(
+                backgroundImage: AssetImage('assets/cow2.jpg'),
+                radius: 80,
               ),
             ),
-            Expanded(
-              flex: 2,
-              child: Container(
-                padding: EdgeInsets.all(30),
-                color: Colors.cyan,
-                child: Text('2'),
+            const SizedBox(
+              height: 10,
+            ),
+            Text(
+              'Name',
+              style: TextStyle(
+                color: Colors.grey[500],
+                letterSpacing: 2,
+                fontWeight: FontWeight.bold,
               ),
             ),
-            Expanded(
-              flex: 1,
-              child: Container(
-                padding: EdgeInsets.all(30),
-                color: Colors.yellow,
-                child: Text('3'),
+            const SizedBox(
+              //for spacing
+              height: 10,
+            ),
+            Text(
+              'Mahmudul Islam',
+              style: TextStyle(
+                color: Colors.grey[900],
+                letterSpacing: 2,
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
               ),
+            ),
+            const SizedBox(
+              //for spacing
+              height: 30,
+            ),
+            Text(
+              'Designation',
+              style: TextStyle(
+                color: Colors.grey[500],
+                letterSpacing: 2,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(
+              //for spacing
+              height: 10,
+            ),
+            Text(
+              'IoT Engineer',
+              style: TextStyle(
+                color: Colors.grey[900],
+                letterSpacing: 2,
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(
+              //for spacing
+              height: 30,
+            ),
+            Row(
+              children: <Widget>[
+                Icon(
+                  Icons.email,
+                  color: Colors.grey[900],
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                Text(
+                  'mahmudulislam299@gmail.com',
+                  style: TextStyle(
+                    color: Colors.grey[900],
+                    fontSize: 18,
+                    letterSpacing: 1,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(
+              //for spacing
+              height: 30,
+            ),
+            Row(
+              children: <Widget>[
+                Icon(
+                  Icons.mobile_friendly_sharp,
+                  color: Colors.grey[900],
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                Text(
+                  '01811177722',
+                  style: TextStyle(
+                    color: Colors.grey[900],
+                    fontSize: 18,
+                    letterSpacing: 1,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
             ),
           ],
         ),
-        floatingActionButton: FloatingActionButton.extended(
-          onPressed: () {
-            // Add your onPressed code here!
-          },
-          label: const Text('Click here'),
-          icon: const Icon(Icons.thumb_up),
-          backgroundColor: Colors.red,
-        ));
+      ),
+    );
   }
 }
