@@ -16,7 +16,7 @@ class NinjaCard extends StatelessWidget {
         elevation: 0, //removing shadow in app bar
       ),
       body: Padding(
-        padding: const EdgeInsets.fromLTRB(30, 40, 30, 0),
+        padding: const EdgeInsets.fromLTRB(30, 20, 30, 0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
