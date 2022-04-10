@@ -27,8 +27,13 @@ class Home extends StatelessWidget {
         ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
+            Container(
+              padding: const EdgeInsets.all(20),
+              color: Colors.cyan,
+              child: const Text('one'),
+            ),
             Row(
               children: <Widget>[
                 Container(
@@ -40,19 +45,16 @@ class Home extends StatelessWidget {
               ],
             ),
             Container(
-              padding: const EdgeInsets.all(20),
-              color: Colors.cyan,
-              child: const Text('one'),
-            ),
-            Container(
-              padding: const EdgeInsets.all(30),
-              color: Colors.red,
-              child: const Text('two'),
-            ),
-            Container(
               padding: const EdgeInsets.all(60),
               color: Colors.green,
               child: const Text('three'),
+            ),
+            Center(
+              child: Container(
+                padding: const EdgeInsets.all(30),
+                color: Colors.red,
+                child: const Text('two'),
+              ),
             )
           ],
         ),
