@@ -25,26 +25,35 @@ class Home extends StatelessWidget {
           centerTitle: true,
           backgroundColor: Colors.blue,
         ),
-        body: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Text('hello world'),
-            ElevatedButton(
-              onPressed: () {},
-              child: const Text('press me!'),
-              style: ElevatedButton.styleFrom(
-                  primary: Colors.purple,
-                  textStyle: const TextStyle(
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
-                  )),
+            Row(
+              children: <Widget>[
+                Container(
+                  padding: EdgeInsets.all(10),
+                  color: Colors.orange,
+                  child: Text('hello'),
+                ),
+                Text(' world'),
+              ],
             ),
             Container(
+              padding: const EdgeInsets.all(20),
               color: Colors.cyan,
-              padding: EdgeInsets.all(30),
-              child: Text('inside container'),
+              child: const Text('one'),
             ),
+            Container(
+              padding: const EdgeInsets.all(30),
+              color: Colors.red,
+              child: const Text('two'),
+            ),
+            Container(
+              padding: const EdgeInsets.all(60),
+              color: Colors.green,
+              child: const Text('three'),
+            )
           ],
         ),
         floatingActionButton: FloatingActionButton.extended(
