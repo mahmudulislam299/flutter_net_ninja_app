@@ -28,7 +28,14 @@ class Home extends StatelessWidget {
         body: Row(
           children: <Widget>[
             Text('hello world'),
-            FlatButton(onPressed: onPressed, child: child)
+            ElevatedButton(
+                onPressed: () {},
+                child: Text(
+                  'click me',
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.purple,
+                  ),
+                ))
           ],
         ),
         floatingActionButton: FloatingActionButton.extended(
