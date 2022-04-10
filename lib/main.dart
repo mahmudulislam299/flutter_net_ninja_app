@@ -25,30 +25,12 @@ class Home extends StatelessWidget {
           centerTitle: true,
           backgroundColor: Colors.blue,
         ),
-        body: Center(
-          // child: Image.asset('assets/cow2.jpg'),
-
-          // child: Icon(
-          //   Icons.airport_shuttle,
-          //   color: Colors.lightBlue,
-          //   size: 200,
-          // child: ElevatedButton(
-          //   onPressed: () {},
-          //   child: const Text('press me!'),
-          //   style: ElevatedButton.styleFrom(
-          //       primary: Colors.purple,
-          //       textStyle: const TextStyle(
-          //         fontSize: 30,
-          //         fontWeight: FontWeight.bold,
-          //       )),
-          // ),
-
-          child: ElevatedButton.icon(
-              onPressed: () {},
-              icon: const Icon(
-                Icons.mail,
-              ),
-              label: const Text("mail me!")),
+        body: Container(
+          padding: const EdgeInsets.all(15), // box 30 pixel sob side thke nibe
+          margin: const EdgeInsets.all(50),
+          // box theke 10 pixel baad thakbe sob side theke
+          color: Colors.grey,
+          child: Text("hello world"),
         ),
         floatingActionButton: FloatingActionButton.extended(
           onPressed: () {
