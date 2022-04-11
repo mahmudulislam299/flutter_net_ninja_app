@@ -57,7 +57,7 @@ class _QuoteListState extends State<QuoteList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.green[100],
+        backgroundColor: Colors.green[200],
         appBar: AppBar(
           title: const Text('Awesome quote'),
           centerTitle: true,
