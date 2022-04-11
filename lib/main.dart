@@ -27,7 +27,7 @@ class _NinjaCardState extends State<NinjaCard> {
             taskDone += 1;
           });
         },
-        child: const Icon(Icons.add),
+        child: const Icon(Icons.toys),
         backgroundColor: Colors.green[800],
       ),
       body: Padding(
