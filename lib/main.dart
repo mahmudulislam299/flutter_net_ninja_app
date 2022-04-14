@@ -1,4 +1,15 @@
-// import 'dart:js';
+/// Stateful Widgets
+///
+/// initState()
+/// - called only once when widget is created
+/// - Subscribe to streams or any object that could change our widget data
+///
+/// Build()
+/// - Builds the widget tree
+/// - A build is triggered every time we use setState()
+///
+/// Dispose()
+/// -When the widget / state object is removed
 
 import 'package:flutter/material.dart';
 import 'package:net_ninja_app/pages/choose_location.dart';
