@@ -22,6 +22,17 @@ class _HomeState extends State<Home> {
               size: 30,
             ),
             label: const Text('Edit Location'),
+          ),
+          ElevatedButton.icon(
+            onPressed: (() {
+              Navigator.pushNamed(context, '/');
+            }),
+            icon: const Icon(
+              Icons.account_box,
+              color: Colors.green,
+              size: 30,
+            ),
+            label: const Text('loading page'),
           )
         ],
       )),
