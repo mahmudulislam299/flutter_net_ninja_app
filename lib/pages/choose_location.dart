@@ -7,10 +7,36 @@ class ChooseLocation extends StatefulWidget {
 
 class _ChooseLocationState extends State<ChooseLocation> {
   int counter = 0;
+
+  void getData() async {
+    //simulate network request for a username
+    String username = await Future.delayed(
+      Duration(seconds: 3),
+      () {
+        // print('mahmud');
+        return 'mahmud';
+      },
+    );
+
+    //simuate network request tor bio of the username
+
+    String bio = await Future.delayed(
+      Duration(seconds: 2),
+      () {
+        // print('IoT engineer');
+        return 'IoT Engineer';
+      },
+    );
+
+    print('$username - $bio');
+  }
+
   @override
   void initState() {
     super.initState();
     print('initState function run');
+    getData();
+    print('hey there');
   }
 
   @override
@@ -29,7 +55,11 @@ class _ChooseLocationState extends State<ChooseLocation> {
             counter++;
           });
         },
-        child: Text('counter is $counter'),
+        child: Text('counter is $counter',
+            style: const TextStyle(
+              color: Colors.red,
+              fontSize: 30,
+            )),
       )),
     );
   }
