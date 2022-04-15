@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:http/http.dart';
-import 'dart:convert';
+import 'package:net_ninja_app/services/world_time.dart';
 
 class Loading extends StatefulWidget {
   @override
@@ -8,30 +7,22 @@ class Loading extends StatefulWidget {
 }
 
 class _LoadingState extends State<Loading> {
-  void getTime() async {
-    // make the response
-    Response response =
-        await get(Uri.parse('http://worldtimeapi.org/api/timezone/Asia/Dhaka'));
-    // print(response.body);
-    Map data = jsonDecode(response.body);
-    // print(data);
+  String time = 'loading';
 
-    // get properties from data
-    String datetime = data['datetime'];
-    String timezone = data['timezone'];
-    int unixtime = data['unixtime'];
-
-    // print(' $datetime -- $timezone -- $unixtime');
-
-    // create a DateTime object
-    DateTime now = DateTime.parse(datetime);
-    print(now);
+  void setupWorldTime() async {
+    WorldTime instance =
+        WorldTime(location: 'Dhaka', flag: 'bangladesh.png', url: 'Asia/Dhaka');
+    await instance.getTime();
+    print(instance.time);
+    setState(() {
+      time = instance.time;
+    });
   }
 
   @override
   void initState() {
     super.initState();
-    getTime();
+    setupWorldTime();
     print('check print');
   }
 
@@ -43,7 +34,15 @@ class _LoadingState extends State<Loading> {
         title: Text('Loading Page'),
         centerTitle: true,
       ),
-      body: SafeArea(child: Text('Loading Screen')),
+      body: SafeArea(
+          child: Text(
+        time,
+        style: const TextStyle(
+          backgroundColor: Colors.white,
+          fontSize: 25,
+          fontWeight: FontWeight.bold,
+        ),
+      )),
     );
   }
 }
