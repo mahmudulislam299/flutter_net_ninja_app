@@ -8,19 +8,30 @@ class Loading extends StatefulWidget {
 }
 
 class _LoadingState extends State<Loading> {
-  void getData() async {
+  void getTime() async {
+    // make the response
     Response response =
-        await get(Uri.parse('https://jsonplaceholder.typicode.com/todos/1'));
+        await get(Uri.parse('http://worldtimeapi.org/api/timezone/Asia/Dhaka'));
     // print(response.body);
     Map data = jsonDecode(response.body);
-    print(data);
-    print(data['userId']);
+    // print(data);
+
+    // get properties from data
+    String datetime = data['datetime'];
+    String timezone = data['timezone'];
+    int unixtime = data['unixtime'];
+
+    // print(' $datetime -- $timezone -- $unixtime');
+
+    // create a DateTime object
+    DateTime now = DateTime.parse(datetime);
+    print(now);
   }
 
   @override
   void initState() {
     super.initState();
-    getData();
+    getTime();
     print('check print');
   }
 
