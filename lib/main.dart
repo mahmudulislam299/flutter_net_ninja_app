@@ -18,7 +18,7 @@ import 'package:net_ninja_app/pages/home.dart';
 
 void main() {
   runApp(MaterialApp(
-    initialRoute: '/home',
+    initialRoute: '/',
     routes: {
       // routes like dictionary
       /// '/about'
