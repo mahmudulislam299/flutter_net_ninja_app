@@ -13,10 +13,17 @@ class _LoadingState extends State<Loading> {
     WorldTime instance =
         WorldTime(location: 'Dhaka', flag: 'bangladesh.png', url: 'Asia/Dhaka');
     await instance.getTime();
-    print(instance.time);
-    setState(() {
-      time = instance.time;
+
+    Navigator.pushReplacementNamed(context, '/home', arguments: {
+      'location': instance.location,
+      'flag': instance.flag,
+      'time': instance.time,
     });
+
+    // print(instance.time);
+    // setState(() {
+    //   time = instance.time;
+    // });
   }
 
   @override
@@ -34,10 +41,11 @@ class _LoadingState extends State<Loading> {
         title: Text('Loading Page'),
         centerTitle: true,
       ),
-      body: SafeArea(
+      body: const SafeArea(
           child: Text(
-        time,
-        style: const TextStyle(
+        // time,
+        'loading',
+        style: TextStyle(
           backgroundColor: Colors.white,
           fontSize: 25,
           fontWeight: FontWeight.bold,
