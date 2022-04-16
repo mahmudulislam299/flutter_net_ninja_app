@@ -17,7 +17,7 @@ class WorldTime {
           await get(Uri.parse('http://worldtimeapi.org/api/timezone/$url'));
       // print(response.body);
       Map data = jsonDecode(response.body);
-      print(data);
+      // print(data);
 
       // get properties from data
       String datetime = data['datetime'];
@@ -25,16 +25,17 @@ class WorldTime {
       int unixtime = data['unixtime'];
       String offset = data['utc_offset'].substring(1, 3);
 
-      print(' $datetime -- $timezone -- $unixtime -- $offset');
+      // print(' $datetime -- $timezone -- $unixtime -- $offset');
 
       // create a DateTime object
       DateTime now = DateTime.parse(datetime);
       now = now.add(Duration(hours: int.parse(offset)));
 
-      print(now);
+      // print(now);
 
       // set the time properties
-      time = DateFormat(' kk:mm a ,EEE, yyyy/MM/dd').format(now);
+      // time = DateFormat(' kk:mm a ,EEE, yyyy/MM/dd').format(now);
+      time = DateFormat('kk:mm a').format(now);
       print(time);
     } catch (e) {
       print('caught error $e');

@@ -14,31 +14,47 @@ class _HomeState extends State<Home> {
 
     return Scaffold(
       body: SafeArea(
-          child: Column(
-        children: <Widget>[
-          ElevatedButton.icon(
-            onPressed: (() {
-              Navigator.pushNamed(context, '/location');
-            }),
-            icon: const Icon(
-              Icons.edit_location,
-              color: Colors.green,
-              size: 30,
+          child: Padding(
+        padding: const EdgeInsets.fromLTRB(0, 120, 0, 0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            ElevatedButton.icon(
+              onPressed: (() {
+                Navigator.pushNamed(context, '/location');
+              }),
+              icon: const Icon(
+                Icons.edit_location,
+                // color: Colors.green,
+                size: 25,
+              ),
+              label: const Text('Edit Location', textAlign: TextAlign.center),
             ),
-            label: const Text('Edit Location'),
-          ),
-          ElevatedButton.icon(
-            onPressed: (() {
-              Navigator.pushNamed(context, '/');
-            }),
-            icon: const Icon(
-              Icons.account_box,
-              color: Colors.green,
-              size: 30,
+            const SizedBox(
+              height: 30,
             ),
-            label: const Text('loading page'),
-          )
-        ],
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  data['location'],
+                  style: const TextStyle(
+                    fontSize: 28,
+                  ),
+                )
+              ],
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Text(
+              data['time'],
+              style: const TextStyle(
+                fontSize: 50,
+              ),
+            ),
+          ],
+        ),
       )),
     );
   }
