@@ -19,36 +19,23 @@ class _ChooseLocationState extends State<ChooseLocation> {
     WorldTime(url: 'Asia/Dhaka', location: 'Dhaka', flag: 'bangladesh.png'),
   ];
 
-  int counter = 0;
+  void updateTime(index) async {
+    WorldTime instance = locations[index];
+    await instance.getTime();
 
-  void getData() async {
-    //simulate network request for a username
-    String username = await Future.delayed(
-      Duration(seconds: 3),
-      () {
-        // print('mahmud');
-        return 'mahmud';
-      },
-    );
-
-    //simuate network request tor bio of the username
-
-    String bio = await Future.delayed(
-      Duration(seconds: 2),
-      () {
-        // print('IoT engineer');
-        return 'IoT Engineer';
-      },
-    );
-
-    print('$username - $bio');
+    //navigate to homescreen
+    Navigator.pop(context, {
+      'location': instance.location,
+      'flag': instance.flag,
+      'time': instance.time,
+      'isDaytime': instance.isDaytime,
+    });
   }
 
   @override
   void initState() {
     super.initState();
     print('initState function run');
-    getData();
     print('hey there');
   }
 
@@ -70,6 +57,7 @@ class _ChooseLocationState extends State<ChooseLocation> {
                 child: ListTile(
                   onTap: () {
                     print(locations[index].location);
+                    updateTime(index);
                   },
                   title: Text(locations[index].location),
                   leading: CircleAvatar(
