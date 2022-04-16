@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:net_ninja_app/services/world_time.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class Loading extends StatefulWidget {
   @override
@@ -35,22 +36,13 @@ class _LoadingState extends State<Loading> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.amber,
-      appBar: AppBar(
-        title: Text('Loading Page'),
-        centerTitle: true,
-      ),
-      body: const SafeArea(
-          child: Text(
-        // time,
-        'loading',
-        style: TextStyle(
-          backgroundColor: Colors.white,
-          fontSize: 25,
-          fontWeight: FontWeight.bold,
+    return const Scaffold(
+      body: Center(
+        child: SpinKitWanderingCubes(
+          color: Colors.blue,
+          size: 50.0,
         ),
-      )),
+      ),
     );
   }
 }
